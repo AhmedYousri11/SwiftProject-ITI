@@ -9,7 +9,11 @@ import UIKit
 
 class MatchViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
 
+    var favourite : Bool!
+    var leagueReference : League?
+    var sportType: String?
     
+    @IBOutlet weak var FavouriteNavigationItem: UINavigationItem!
     @IBOutlet weak var upcomingEventsCollectionView: UICollectionView!
     var upcomingEvents : [Event]?
     
@@ -30,7 +34,7 @@ class MatchViewController: UIViewController,UICollectionViewDelegate,UICollectio
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        FavouriteNavigationItem.rightBarButtonItem?.image = UIImage(systemName: favourite ? "heart.fill" : "heart")
         let Network = NetworkManager()
         viewModelObject = LeagueDetailsViewModel(networkHandler: Network, leagueID: leagueID)
 
@@ -170,7 +174,14 @@ class MatchViewController: UIViewController,UICollectionViewDelegate,UICollectio
         dismiss(animated: true)
     }
     
-
+    
+    
+    @IBAction func FavouriteButton(_ sender: Any) {
+        favourite = !favourite
+        FavouriteNavigationItem.rightBarButtonItem?.image = UIImage(systemName: favourite ? "heart.fill" : "heart")
+        viewModelObject?.makeFavouriteLeague(favouriteLeague: favourite, leagueModel: leagueReference!, sport: (sportType)!)
+    }
+    
     /*
     // MARK: - Navigation
 

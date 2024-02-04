@@ -12,17 +12,26 @@ class LeaguesTableViewController: UITableViewController {
 
     var leagues : [League]?
     var type : SportType!
+    
+    var favouriteLeague : [Int]?
+    
+    var viewModel : LeagueViewModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let Network = NetworkManager()
+       viewModel = LeagueViewModel(networkHandler: Network)
+        favouriteLeague = viewModel?.returnFavouritekeys(type: type)
         initTableView()
         
         print(type.path)
-
-        let Network = NetworkManager()
-        Network.fetchResult(SportsUrl: "https://apiv2.allsportsapi.com/\(type.path)/?met=Leagues&APIkey=25fc7c64551ae1db877251383c94f9765521699801442b593a22c704a306c95f", type: GetLeagues.self) { leagues in
-            self.leagues = leagues?.result
+        
+        viewModel?.loadLeagues(type: type)
+        viewModel?.bindResultToViewController = {
+             
+            self.leagues = self.viewModel?.getLeagues()
 //            print(leagues)
+            
             
             DispatchQueue.main.async{
                 self.tableView.reloadData()
@@ -65,6 +74,10 @@ class LeaguesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let matchesScreen = storyboard?.instantiateViewController(withIdentifier: "Matches") as! MatchViewController
         matchesScreen.leagueID = leagues![indexPath.row].leagueKey
+        matchesScreen.favourite = favouriteLeague?.contains((leagues![indexPath.row].leagueKey)!)
+        matchesScreen.sportType = type.path
+        matchesScreen.leagueReference = leagues![indexPath.row]
+        
         present(matchesScreen, animated: true)
     }
     

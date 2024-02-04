@@ -9,7 +9,7 @@ import Foundation
 
 
 class LeagueDetailsViewModel {
-    
+    var coreData : CoreDataManager?
     var networkHandler:NetworkManager?
     var bindResultToViewController : (()->()) = {}
     var leagueID : Int?
@@ -32,6 +32,9 @@ class LeagueDetailsViewModel {
     init(networkHandler: NetworkManager?, leagueID: Int) {
         self.networkHandler = networkHandler
         self.leagueID = leagueID
+        self.coreData = CoreDataManager()
+        
+        coreData?.fetchData()
     }
     
     func loadTeam(){
@@ -39,6 +42,8 @@ class LeagueDetailsViewModel {
             
             
             self.result = teams?.result
+            
+            
             
             print( Team.self)
         }
@@ -62,6 +67,15 @@ class LeagueDetailsViewModel {
 
           
         }
+    }
+    
+    func makeFavouriteLeague(favouriteLeague: Bool, leagueModel: League, sport: String){
+        if favouriteLeague{
+            coreData?.saveToCoreData(league: leagueModel, sport: sport)
+        }else{
+            coreData?.deleteleagueFromCoreData(league: leagueModel, sport: sport)
+        }
+        
     }
     
     func getTeams()->[Team]{

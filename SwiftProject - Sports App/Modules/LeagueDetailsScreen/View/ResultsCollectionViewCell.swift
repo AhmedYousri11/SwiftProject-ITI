@@ -28,23 +28,7 @@ class ResultsCollectionViewCell: UICollectionViewCell {
         background.clipsToBounds = true
         background.layer.cornerRadius = background.frame.height / 10
         
-        imageFirstClub.borderImage()
-        
-        imageSecondClub.borderImage()
-        
     }
-    
-//    func initializeCell(_ event:Event,Image name:String){
-//        
-//        imageFirstClub.kf.setImage(with: URL(string: event.homeTeamLogo ?? ""),placeholder: UIImage(named: name))
-//        nameFirstClub.text = event.eventHomeTeam
-//        timeMatch.text = event.eventTime
-//        nameSecondClub.text = event.eventAwayTeam
-//        imageSecondClub.kf.setImage(with: URL(string: event.awayTeamLogo ?? ""),placeholder: UIImage(named:  name))
-//        dateOfMatch.text = event.eventDate
-//        resultMatch.text = event.eventFinalResult
-//        
-//    }
     
 }
 

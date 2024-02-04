@@ -44,10 +44,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! SportsCell
         
-        
-//        cell.sportLabel.text = sportPhotos[indexPath.row]
-        
-//        cell.sportImage.kf.setImage(with: URL(string: "https://a.espncdn.com/combiner/i?img=/i/teamlogos/soccer/500/359.png"))
+
         cell.sportImage.image = UIImage(named: sports[indexPath.row])
         cell.sportLabel.text = sports[indexPath.row]
         return cell
@@ -65,10 +62,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         return size
     }
     
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: (UIScreen.main.bounds.size.width/2)-16, height: 160)
-//    }
+
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let leaguesScreen = self.storyboard?.instantiateViewController(identifier: "Leagues") as! LeaguesTableViewController

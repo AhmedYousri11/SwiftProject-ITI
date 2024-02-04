@@ -129,6 +129,11 @@
                                                 <action selector="BackToLeaguesListButton:" destination="eaa-3N-IbX" id="flp-pw-GD7"/>
                                             </connections>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" id="nMb-Ci-tcJ">
+                                            <connections>
+                                                <action selector="FavouriteButton:" destination="eaa-3N-IbX" id="UNH-x2-hYI"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -265,6 +270,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="FavouriteNavigationItem" destination="iTp-YO-rOP" id="Hf3-bI-K5c"/>
                         <outlet property="clubsCollectionView" destination="Zed-Js-ofn" id="7Qy-O4-P0s"/>
                         <outlet property="latestEventsCollectionView" destination="EeA-My-217" id="AK1-hq-384"/>
                         <outlet property="upcomingEventsCollectionView" destination="h9h-Ei-as5" id="fa5-r6-96r"/>
@@ -324,32 +330,16 @@
             </objects>
             <point key="canvasLocation" x="4404" y="-54"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="naF-CV-YMg">
-            <objects>
-                <viewController id="oXb-hP-O8w" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="lcp-ik-t9J">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="2dt-9a-bkw"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="aGu-bi-PDq"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9UM-g8-IFF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1936.6412213740457" y="819.71830985915494"/>
-        </scene>
-        <!--Table View Controller-->
+        <!--Favourites-->
         <scene sceneID="RcG-eW-F2Z">
             <objects>
-                <tableViewController id="Kdv-xW-wwX" sceneMemberID="viewController">
+                <tableViewController id="Kdv-xW-wwX" customClass="FavouriteLeaguesTableViewController" customModule="SwiftProject___Sports_App" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="9CE-1C-2K9">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="o7n-UZ-xAS">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavouriteLeagueCell" id="o7n-UZ-xAS">
                                 <rect key="frame" x="0.0" y="50" width="393" height="47.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o7n-UZ-xAS" id="kAs-CF-ePI">
@@ -363,10 +353,13 @@
                             <outlet property="delegate" destination="Kdv-xW-wwX" id="dpe-gU-yln"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Favourites" image="heart" catalog="system" id="QW3-hm-ihI">
+                        <imageReference key="selectedImage" image="heart.fill" catalog="system" renderingMode="original"/>
+                    </tabBarItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UgF-GF-i2n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2755" y="820"/>
+            <point key="canvasLocation" x="1011" y="909"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Q3R-t7-srm">
@@ -381,7 +374,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="qKD-yS-GyF" kind="relationship" relationship="viewControllers" id="llI-OJ-cjc"/>
-                        <segue destination="uz0-B9-e6n" kind="relationship" relationship="viewControllers" id="Cko-Uy-dP2"/>
+                        <segue destination="Kdv-xW-wwX" kind="relationship" relationship="viewControllers" id="gm1-rp-sZI"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eF1-tM-key" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -408,27 +401,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vna-YA-kQj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1011.4503816793892" y="-27.464788732394368"/>
-        </scene>
-        <!--Favorites-->
-        <scene sceneID="VGQ-xq-Rqs">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uz0-B9-e6n" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favorites" image="heart" catalog="system" id="eBb-ND-YlP">
-                        <imageReference key="selectedImage" image="heart.fill" catalog="system" renderingMode="original"/>
-                    </tabBarItem>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="n4Z-Ln-SI9">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="oXb-hP-O8w" kind="relationship" relationship="rootViewController" id="yUG-oZ-36T"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xic-Dm-1RR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1009.9236641221373" y="819.71830985915494"/>
         </scene>
     </scenes>
     <resources>

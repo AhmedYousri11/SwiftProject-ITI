@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -33,15 +33,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oTm-fu-u7o">
+                                <rect key="frame" x="472" y="105" width="24" height="39"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                         <constraints>
                             <constraint firstItem="jpL-m6-PPC" firstAttribute="top" secondItem="pIM-6A-xYs" secondAttribute="top" constant="8" id="3Ep-Fo-ISB"/>
+                            <constraint firstItem="oTm-fu-u7o" firstAttribute="top" secondItem="pIM-6A-xYs" secondAttribute="top" constant="105" id="7rz-sK-PW3"/>
                             <constraint firstItem="Fni-aY-Vr0" firstAttribute="leading" secondItem="jpL-m6-PPC" secondAttribute="trailing" constant="32" id="Aql-5v-E1M"/>
                             <constraint firstItem="jpL-m6-PPC" firstAttribute="leading" secondItem="pIM-6A-xYs" secondAttribute="leading" constant="16" id="PLK-Le-WI4"/>
+                            <constraint firstAttribute="trailing" secondItem="oTm-fu-u7o" secondAttribute="trailing" constant="8" id="c9o-Bc-VHC"/>
                             <constraint firstItem="Fni-aY-Vr0" firstAttribute="centerY" secondItem="pIM-6A-xYs" secondAttribute="centerY" id="dze-oU-fhD"/>
                             <constraint firstAttribute="trailing" secondItem="Fni-aY-Vr0" secondAttribute="trailing" constant="64" id="ig7-lc-bat"/>
                             <constraint firstAttribute="bottom" secondItem="jpL-m6-PPC" secondAttribute="bottom" constant="8" id="oJu-yd-Fud"/>
+                            <constraint firstAttribute="bottom" secondItem="oTm-fu-u7o" secondAttribute="bottom" constant="104" id="u2x-kR-0Ud"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -64,7 +72,7 @@
     </objects>
     <resources>
         <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

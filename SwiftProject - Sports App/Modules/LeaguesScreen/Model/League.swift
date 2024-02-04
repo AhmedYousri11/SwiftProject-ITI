@@ -25,6 +25,7 @@ struct GetLeagues: Codable {
 
 // MARK: - Result
 struct League: Codable {
+    
     let leagueKey: Int?
     let leagueName: String?
     let leagueYear: String?
@@ -32,6 +33,7 @@ struct League: Codable {
     let countryName: String?
     let leagueLogo: String?
     let countryLogo: String?
+    
 
     enum CodingKeys: String, CodingKey {
         case leagueKey = "league_key"
