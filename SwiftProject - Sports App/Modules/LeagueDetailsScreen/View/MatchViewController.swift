@@ -101,6 +101,7 @@ class MatchViewController: UIViewController,UICollectionViewDelegate,UICollectio
             cell.nameSecondClub.text = upcomingEvents![indexPath.row].event_away_team
             cell.dateOfMatch.text = upcomingEvents![indexPath.row].event_date
             cell.timeMatch.text = upcomingEvents![indexPath.row].event_time
+            cell.resultMatch.text = " "
             
             return cell
             
@@ -154,6 +155,13 @@ class MatchViewController: UIViewController,UICollectionViewDelegate,UICollectio
         }
     }
 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == clubsCollectionView {
+            let teamScreen = self.storyboard?.instantiateViewController(identifier: "TeamDetails") as! TeamDetailsViewController
+            teamScreen.teamId = clubs?[indexPath.row].teamKey
+            present(teamScreen, animated: true)
+        }
+    }
     
     
     

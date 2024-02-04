@@ -17,7 +17,7 @@ class CoreDataManager{
     
     init(){
         let delegate = UIApplication.shared.delegate as! AppDelegate
-       // context = delegate.persistentContainer.viewContextt
+        context = delegate.persistentContainer.viewContext
     }
     
     
